@@ -7,8 +7,8 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { HelloWorld } from "../../hello-world";
-import { Component, Vue } from "vue-property-decorator";
+import { HelloWorld } from '../../hello-world';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {
