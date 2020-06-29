@@ -22,7 +22,7 @@
     </v-navigation-drawer>
 
     <v-app-bar app color="indigo" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="emitToggle()"></v-app-bar-nav-icon>
       <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 
@@ -47,13 +47,30 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Home extends Vue {
-  public drawer = false;
-
   @Prop()
   public source?: string;
+
+  @Prop()
+  public draw!: boolian;
+
+  public get drawer(): boolian {
+    return this.draw;
+  }
+
+  public set drawer(value: boolian): void {
+    this.emit(value);
+  }
+
+  @Emit()
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  public emit() {}
+
+  public emitToggle(): void {
+    this.emit(!this.draw);
+  }
 }
 </script>

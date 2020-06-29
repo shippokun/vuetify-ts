@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <HomeComponent />
+    <HomeComponent :draw="drawer" @emit="toggleDraw" />
     <Footer />
   </v-app>
 </template>
@@ -16,5 +16,11 @@ import { Component, Vue } from 'vue-property-decorator';
     FooterPage,
   },
 })
-export default class HomeContainer extends Vue {}
+export default class HomeContainer extends Vue {
+  public drawer = false;
+
+  public toggleDraw(value: boolian): void {
+    this.drawer = value;
+  }
+}
 </script>
