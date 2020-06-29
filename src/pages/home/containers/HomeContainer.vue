@@ -19,7 +19,7 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class HomeContainer extends Vue {
   public drawer = false;
 
-  public toggleDraw(value: boolian): void {
+  public toggleDraw(value: boolean): void {
     this.drawer = value;
   }
 }

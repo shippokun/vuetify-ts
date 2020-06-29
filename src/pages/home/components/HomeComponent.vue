@@ -55,19 +55,19 @@ export default class Home extends Vue {
   public source?: string;
 
   @Prop()
-  public draw!: boolian;
+  public draw!: boolean;
 
-  public get drawer(): boolian {
+  public get drawer(): boolean {
     return this.draw;
   }
 
-  public set drawer(value: boolian): void {
+  public set drawer(value: boolean) {
     this.emit(value);
   }
 
   @Emit()
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public emit() {}
+  public emit(value: boolean) {}
 
   public emitToggle(): void {
     this.emit(!this.draw);
