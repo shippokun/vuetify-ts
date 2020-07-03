@@ -1,15 +1,16 @@
 <template>
-  <v-app-bar app color="indigo" dark>
-    <v-app-bar-nav-icon @click.stop="emitToggle()"></v-app-bar-nav-icon>
-    <v-toolbar-title>Application</v-toolbar-title>
-  </v-app-bar>
+  <NavigationHeaderComponent :drawer="drawer" @emit="emitToggle" />
 </template>
-
 <script lang="ts">
+import { NavigationHeaderComponent } from '../components';
 import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 
-@Component
-export default class NavigationBarComponent extends Vue {
+@Component({
+  components: {
+    NavigationHeaderComponent,
+  },
+})
+export default class NavigationHeaderContainer extends Vue {
   @Prop()
   public drawer!: boolean;
 

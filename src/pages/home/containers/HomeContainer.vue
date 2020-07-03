@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <NavigationBarPage :drawer="drawer" @emit="toggleDraw" />
+    <NavigationHeaderPage :drawer="drawer" @emit="toggleDraw" />
     <HomeComponent :draw="drawer" @emit="toggleDraw" />
     <Footer />
   </v-app>
@@ -9,14 +9,14 @@
 <script lang="ts">
 import { HomeComponent } from '../components';
 import { FooterPage } from '../../footer';
-import { NavigationBarPage } from '../../navigation-bar';
+import { NavigationHeaderPage } from '../../navigation-header';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {
     HomeComponent,
     FooterPage,
-    NavigationBarPage,
+    NavigationHeaderPage,
   },
 })
 export default class HomeContainer extends Vue {
