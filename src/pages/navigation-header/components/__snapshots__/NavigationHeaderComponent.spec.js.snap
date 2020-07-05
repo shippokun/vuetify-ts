@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationHeaderComponent.vue snapshots 1`] = `
+<v-app-bar-stub color="indigo" dark="true" tag="header" extensionheight="48" src="" value="true" app="true">
+  <v-app-bar-nav-icon-stub></v-app-bar-nav-icon-stub>
+  <v-toolbar-title-stub>Application</v-toolbar-title-stub>
+</v-app-bar-stub>
+`;
