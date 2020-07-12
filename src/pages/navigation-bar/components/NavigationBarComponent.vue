@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class NavigationBarComponent extends Vue {
@@ -34,11 +34,14 @@ export default class NavigationBarComponent extends Vue {
   }
 
   public set drawer(value: boolean) {
-    this.emit(value);
+    this.emitToggle(value);
   }
 
-  @Emit()
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public emit(value: boolean) {}
+  @Prop()
+  public toggleDraw!: Function;
+
+  public emitToggle = (value: boolean) => {
+    this.toggleDraw(value);
+  };
 }
 </script>

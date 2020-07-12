@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <NavigationHeaderPage :drawer="drawer" @emit="toggleDraw" />
-    <NavigationBarPage :drawer="drawer" @emit="toggleDraw" />
+    <NavigationHeaderPage :drawer="drawer" :toggleDraw="toggleDraw" />
+    <NavigationBarPage :drawer="drawer" :toggleDraw="toggleDraw" />
     <HomeComponent />
     <Footer />
   </v-app>

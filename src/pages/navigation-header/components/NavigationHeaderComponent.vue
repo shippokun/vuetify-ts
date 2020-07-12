@@ -6,19 +6,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class NavigationHeaderComponent extends Vue {
   @Prop()
   public drawer!: boolean;
 
-  @Emit()
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public emit(value: boolean) {}
+  @Prop()
+  public toggleDraw!: Function;
 
-  public emitToggle(): void {
-    this.emit(!this.drawer);
-  }
+  public emitToggle = () => {
+    this.toggleDraw(!this.drawer);
+  };
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <NavigationBarComponent :draw="drawer" @emit="emitToggle" />
+  <NavigationBarComponent :draw="drawer" :toggleDraw="emitToggle" />
 </template>
 <script lang="ts">
 import { NavigationBarComponent } from '../components';
-import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {
@@ -14,12 +14,11 @@ export default class NavigationBarContainer extends Vue {
   @Prop()
   public drawer!: boolean;
 
-  @Emit()
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public emit(value: boolean) {}
+  @Prop()
+  public toggleDraw!: Function;
 
-  public emitToggle(value: boolean): void {
-    this.emit(value);
-  }
+  public emitToggle = (value: boolean) => {
+    this.toggleDraw(value);
+  };
 }
 </script>
