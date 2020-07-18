@@ -1,21 +1,22 @@
-import Vuetify from 'vuetify';
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import NavigationHeaderComponent from './NavigationHeaderComponent.vue';
 
-const localVue = createLocalVue();
-
 describe('NavigationHeaderComponent.vue', () => {
-  let vuetify;
-  beforeEach(() => {
-    vuetify = new Vuetify();
-  });
   const wrapper = shallowMount(NavigationHeaderComponent, {
-    localVue,
     propsData: {
       drawer: false,
+      toggleDraw: jest.fn(),
     },
   });
   it('snapshots', () => {
     expect(wrapper.html()).toMatchSnapshot();
+  });
+  describe('methods', () => {
+    it('emitToggle', () => {
+      const mockInput = false;
+      wrapper.vm.emitToggle(mockInput);
+
+      expect(wrapper.vm.toggleDraw).toBeCalledWith(!mockInput);
+    });
   });
 });

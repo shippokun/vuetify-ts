@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationBarComponent.vue snapshots 1`] = `
+<v-navigation-drawer-stub app="true" mobilebreakpoint="1264" height="100vh" minivariantwidth="56" src="" tag="nav" width="256">
+  <v-list-stub tag="div" dense="true">
+    <v-list-item-stub activeclass="" link="true" tag="div">
+      <v-list-item-action-stub>
+        <v-icon-stub>mdi-home</v-icon-stub>
+      </v-list-item-action-stub>
+      <v-list-item-content-stub>
+        <v-list-item-title-stub>Home</v-list-item-title-stub>
+      </v-list-item-content-stub>
+    </v-list-item-stub>
+    <v-list-item-stub activeclass="" link="true" tag="div">
+      <v-list-item-action-stub>
+        <v-icon-stub>mdi-email</v-icon-stub>
+      </v-list-item-action-stub>
+      <v-list-item-content-stub>
+        <v-list-item-title-stub>Contact</v-list-item-title-stub>
+      </v-list-item-content-stub>
+    </v-list-item-stub>
+  </v-list-stub>
+</v-navigation-drawer-stub>
+`;
