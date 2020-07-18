@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <NavigationHeaderPage :drawer="drawer" :toggleDraw="toggleDraw" />
+    <NavigationHeaderPage />
     <NavigationBarPage :drawer="drawer" :toggleDraw="toggleDraw" />
     <HomeComponent />
     <Footer />

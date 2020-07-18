@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeComponent.vue render 1`] = `
+<v-main-stub tag="main">
+  <v-container-stub tag="div" fluid="true" class="fill-height">
+    <v-row-stub tag="div" align="center" justify="center">
+      <v-col-stub tag="div" class="text-center">
+        <v-tooltip-stub opendelay="0" closedelay="0" contentclass="" fixed="true" left="true" openonhover="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" tag="span"> <span>Source</span></v-tooltip-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</v-main-stub>
+`;
