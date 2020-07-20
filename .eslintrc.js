@@ -22,7 +22,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/**/*.{j,t}s?(x)'],
+      files: ['**/src/**/*.{j,t}s?(x)', '**/src/**/*.spec.{j,t}s?(x)'],
       env: {
         jest: true,
       },

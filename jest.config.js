@@ -13,9 +13,12 @@ module.exports = {
     },
   },
   testMatch: ['**/*.spec.{j,t}s?(x)'],
+  collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue,ts}',
     '!src/main.ts',
     '!src/pages/**/index.ts',
+    '!src/router/index.ts',
+    '!src/shims-*.d.ts',
   ],
 };

@@ -6,11 +6,6 @@ import { draw } from './Draw';
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
-  state: {
-    version: '1.0.0',
-  },
-  mutations: {},
-  actions: {},
   modules: {
     draw,
   },
