@@ -1,9 +1,16 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import NavigationBarComponent from './NavigationBarComponent.vue';
 import Vuetify from 'vuetify';
+import Vuex from 'vuex';
+import { DrawState } from '../../../store/types';
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe('NavigationBarComponent.vue', () => {
-  let vuetify;
+  let vuetify: any;
+  let store: any;
+  let state: DrawState;
 
   beforeEach(() => {
     vuetify = new Vuetify({
@@ -13,14 +20,22 @@ describe('NavigationBarComponent.vue', () => {
         },
       },
     });
+    store = new Vuex.Store({
+      modules: {
+        draw: {
+          namespaced: true,
+          state: {
+            drawer: false,
+          },
+        },
+      },
+    });
   });
   it('snapshots', () => {
     const wrapper = shallowMount(NavigationBarComponent, {
       vuetify,
-      propsData: {
-        draw: false,
-        toggleDraw: jest.fn(),
-      },
+      store,
+      localVue,
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -28,14 +43,17 @@ describe('NavigationBarComponent.vue', () => {
     it('set drawer', () => {
       const wrapper = shallowMount(NavigationBarComponent, {
         vuetify,
+        localVue,
+        store,
         propsData: {
-          draw: false,
           toggleDraw: jest.fn(),
         },
       });
-      const mockInput = false;
+      const mockInput = true;
+      // @ts-ignore
       wrapper.vm.drawer = mockInput;
 
+      // @ts-ignore
       expect(wrapper.vm.toggleDraw).toBeCalledWith(mockInput);
     });
   });
@@ -43,14 +61,17 @@ describe('NavigationBarComponent.vue', () => {
     it('emitToggle', () => {
       const wrapper = shallowMount(NavigationBarComponent, {
         vuetify,
+        localVue,
+        store,
         propsData: {
-          draw: false,
           toggleDraw: jest.fn(),
         },
       });
       const mockInput = false;
+      // @ts-ignore
       wrapper.vm.emitToggle(mockInput);
 
+      // @ts-ignore
       expect(wrapper.vm.toggleDraw).toBeCalledWith(mockInput);
     });
   });

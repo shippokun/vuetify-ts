@@ -3,7 +3,11 @@
 </template>
 <script lang="ts">
 import { NavigationHeaderComponent } from '../components';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+import { DrawState } from '../../../store/types';
+
+const module = namespace('draw');
 
 @Component({
   components: {
@@ -11,14 +15,12 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   },
 })
 export default class NavigationHeaderContainer extends Vue {
-  @Prop()
-  public drawer!: boolean;
+  @module.State(state => state.drawer) drawer!: DrawState;
 
-  @Prop()
-  public toggleDraw!: Function;
+  @module.Action('changeDraw') changeDraw!: (value: boolean) => void;
 
   public emitToggle = (value: boolean) => {
-    this.toggleDraw(value);
+    this.changeDraw(value);
   };
 }
 </script>

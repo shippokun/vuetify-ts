@@ -23,24 +23,27 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+import { DrawState } from '../../../store/types';
+
+const module = namespace('draw');
 
 @Component
 export default class NavigationBarComponent extends Vue {
-  @Prop()
-  public draw!: boolean;
+  @module.State(state => state.drawer) draw!: DrawState;
 
-  public get drawer(): boolean {
+  public get drawer(): DrawState {
     return this.draw;
   }
 
-  public set drawer(value: boolean) {
+  public set drawer(value: DrawState) {
     this.emitToggle(value);
   }
 
   @Prop()
   public toggleDraw!: Function;
 
-  public emitToggle = (value: boolean) => {
+  public emitToggle = (value: DrawState) => {
     this.toggleDraw(value);
   };
 }
