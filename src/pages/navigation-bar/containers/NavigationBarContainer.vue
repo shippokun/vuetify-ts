@@ -3,7 +3,11 @@
 </template>
 <script lang="ts">
 import { NavigationBarComponent } from '../components';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+import { DrawState } from '../../../store/types';
+
+const module = namespace('draw');
 
 @Component({
   components: {
@@ -11,14 +15,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   },
 })
 export default class NavigationBarContainer extends Vue {
-  @Prop()
-  public drawer!: boolean;
+  @module.Action('changeDraw') changeDraw!: (value: DrawState) => void;
 
-  @Prop()
-  public toggleDraw!: Function;
-
-  public emitToggle = (value: boolean) => {
-    this.toggleDraw(value);
+  public emitToggle = (value: DrawState) => {
+    this.changeDraw(value);
   };
 }
 </script>

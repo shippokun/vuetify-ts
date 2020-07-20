@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <NavigationHeaderPage />
-    <NavigationBarPage :drawer="drawer" :toggleDraw="toggleDraw" />
+    <NavigationBarPage />
     <HomeComponent />
     <Footer />
   </v-app>
@@ -22,11 +22,5 @@ import { Component, Vue } from 'vue-property-decorator';
     NavigationBarPage,
   },
 })
-export default class HomeContainer extends Vue {
-  public drawer = false;
-
-  public toggleDraw(value: boolean): void {
-    this.drawer = value;
-  }
-}
+export default class HomeContainer extends Vue {}
 </script>
